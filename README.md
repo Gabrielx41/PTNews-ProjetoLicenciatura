@@ -16,7 +16,7 @@ Este repositório contém o projeto PTNews desenvolvido como projeto final de Li
 * UltimosID: Contém os últimos id's das últimas notícias recolhidas.
 * Uteis: Contém funções úteis para a extração dos dados.
 * iniciar.py: Inicialização do script para incializar a extração de dados.
-* main.py: Ficheiro main do script.
+* main.py: Ficheiro main do script (operações de gerenciamento do script).
 
 ### PTNews
 O website onde os utilizadores podem aceder ás notícias recolhidas e ás respetivas estatísticas.
