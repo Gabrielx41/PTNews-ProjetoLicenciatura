@@ -5,6 +5,7 @@ Este repositório contém o projeto PTNews desenvolvido como projeto final de Li
 ### Extração dos Dados
 
 ## Tecnologias Utilizadas
-![Python](https://img.shields.io/badge/Python-70%25-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-20%25-yellow)
-![HTML](https://img.shields.io/badge/HTML-10%25-red)
+![Python](https://img.shields.io/badge/Python-42.9%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-30.3%25-yellow)
+![CSS](https://img.shields.io/badge/CSS-14.9%25-purple)
+![HTML](https://img.shields.io/badge/HTML-11.9%25-red)
