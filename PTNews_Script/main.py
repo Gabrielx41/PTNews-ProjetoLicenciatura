@@ -73,7 +73,7 @@ def main(jornal, url):
                     observador(novos_dados, ultimo_id, jornal)
                           
                   
-                sleep(900) # 15 minutos
+                sleep(7200) # 2 horas
                 
                 
     ############################## RSS ##############################
@@ -97,7 +97,7 @@ def main(jornal, url):
                     ionline(novos_dados, ultimo_id, jornal)
                     
                 
-                sleep(900) # 15 minutos
+                sleep(3600) # 1 hora
 
 
         case "NAM":
