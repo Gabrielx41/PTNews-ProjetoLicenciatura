@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="../static/css/LoginPage.css" />
+{% endblock %}
+
+{% block content %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../static/js/Olho.js"></script>
+
+  <div class="background-image-login">
+    <div class="container-login">
+      <h2 class='h2-login'>Bem-vindo</h2>
+      <p class='p-login'>Por favor, insira as suas credencias para aceder a PTNews</p>
+      <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="Username" class='username-login' required />
+        
+        <div class="password-container">
+          <input type="password" id="password" name="password" placeholder="Password" class='password-login' required />
+          <img src="../static/images/hidden.png" class="eye-icon" alt="icon-eye">
+        </div>
+
+        <input type="submit" class='botao-login' value="Entrar" />
+      </form>
+      {% if request.args.get('error') %}
+      <div class="alert-login" role="alert">
+          {{ request.args.get('error') }}
+      </div>
+    {% endif %}
+    </div>
+  </div>
+{% endblock %}

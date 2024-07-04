@@ -1,0 +1,53 @@
+.data-hora-container {
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .data-hora-container label{
+    font-weight: bold;
+    margin-right: 0;
+    font-size: 17.5px;
+  }
+  
+  .date-range {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 30px;
+  }
+  
+  .date-range span {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .containerMax span{
+    margin-left: 10px;
+  }
+  
+  .form-control {
+    border: none;
+    border-bottom: 2px solid #7fa2c4;
+    background-color: #F1F3F5;
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #7fa2c4;
+    box-shadow: 0 0 5px #7fa2c4;
+  }  
+
+@media(max-width: 665px){
+  .date-range{
+    display: block;
+  }
+  .date-range span{
+    margin-right: 12px;
+  }
+  .containerMax span{
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}

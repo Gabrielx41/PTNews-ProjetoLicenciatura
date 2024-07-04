@@ -1,0 +1,106 @@
+
+#error {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    width: 80%;
+}
+
+.error-message-psq {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.error-button{
+    background-color: #a23e48;
+}
+
+.error-button:hover{
+    background-color: #701b26;
+}
+
+.topic-container h2 {
+    margin-top: 70px;
+    color: #333;
+}
+
+#noticias-container{
+    width: 100%;
+    padding:0;
+    justify-content: space-between;
+}
+
+.noticia{
+    margin-top: 20px;
+    margin-bottom: 1%;
+}
+
+#container-topicos{
+    padding: 2.3%;
+    width: calc(100% - 4.6%);
+}
+
+.butVerMais {
+    float: right;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #62a0da;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.butVerMais:hover {
+    color: white;
+    background-color: #5c8dbb;
+    transform: scale(0.95);
+}
+
+.title{
+    display: none;
+    text-align: center;
+    white-space: pre-line;
+    margin-top: 50px;
+    margin-bottom: -50px;
+}
+
+.title:hover{
+    font-size: 35px;
+}
+
+.rodape{
+    margin-top: 50px;
+}
+
+
+@media (max-width: 500px) {
+    .title{
+        font-size: 26px;
+    }
+    .topic-container h2 {
+        font-size: 20px;
+    }
+    .title:hover{
+        font-size: 29px;
+    }
+    .noticia{
+        margin-bottom: 0;
+    }
+    .butVerMais{
+        margin-top: -5px;
+    }
+}

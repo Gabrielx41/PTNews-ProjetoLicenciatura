@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="../static/css/EstatisticasPage.css" />
+{% endblock %}
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <script src="../static/js/DownloadImage.js"></script>
+    <script src="../static/js/EstatisticasPage.js"></script>
+    <script src="../static/js/GetNomes.js"></script>
+    <script src="../static/js/FormatarData.js"></script>
+    <script src="../static/js/FullScreen.js"></script>
+    <script src="../static/js/cima.js"></script>
+    <script src="../static/js/CriarGrafico.js"></script>
+
+    <div id="loading2" class="loading-container">
+      <img src="../static/images/loading.gif" alt="spinner" style="width=125px;height:125px">
+    </div>
+
+    <div id="container-graficos"></div>
+    
+{% endblock %}

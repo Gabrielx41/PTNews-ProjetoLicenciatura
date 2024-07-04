@@ -1,0 +1,59 @@
+[
+    {
+        "source": "NAM",
+        "id": "2592266",
+        "title": "Nem mais \"um cêntimo\" também para a Saúde? \"Esse parece ser o caminho\"",
+        "url": "https://www.noticiasaominuto.com/politica/2592266/nem-mais-um-centimo-tambem-para-a-saude-esse-parece-ser-o-caminho?utm_source=rss-polã­tica&utm_medium=rss&utm_campaign=rssfeed",
+        "lead": "Enfermeiros dos centros de saúde de Lisboa manifestam-se esta quinta-feira. Durante os protestos a líder bloquista falou, acusando os socias-democratas de quererem \"entregar à força\" o setor da saúde ao negócio privado.",
+        "content": "A coordenadora do Bloco de Esquerda, Mariana Mortágua, marcou presença na greve dos enfermeiros dos centros de saúde de Lisboa, que decorre esta quinta-feira.\n\"O PSD Partido Social Democrata quer à força entregar a saúde ao negócio privado, quando está à vista que quando há investimento no público, se o mesmo dinheiro for usado para pagar a profissionais no públicos, o resultado é muito melhor e mantemos um SNS em todo o país, igual para todos\", defendeu, em declarações aos jornalistas.\nNo âmbito do estado das negociações no setor, que só começam no próximo dia 18, Mariana Mortágua foi confrontada com a 'frase polémica' da semana. Em causa estão as declarações do primeiro-ministro, Luís Montenegro, que esta semana disse que \"não havia mais um cêntimo\" para a proposta das forças de segurança. A bloquista foi questionada sobre se daqui a algum tempo a mesma frase poderia ser usada por Montenegro, mas no setor da saúde, e foi peremptória: \"Esse parece ser o caminho\".\nForças de segurança? \"Governo fez esforço medonho. Nem mais um cêntimo\"\nO primeiro-ministro afirmou hoje que o Governo não vai colocar \"nem mais um cêntimo\" na proposta para as forças de segurança, dizendo que já fez \"um esforço medonho\" e não está disponível para \"trazer de volta a instabilidade financeira\".\nLusa | 13:35 - 02/07/2024\nNotícia em atualização",
+        "images": [
+            {
+                "url": "https://media-manager.noticiasaominuto.com/naom_659fd14667271.jpg?w=1920",
+                "credits": null
+            }
+        ],
+        "published": 1720090987.0,
+        "authors": [
+            {
+                "name": "Teresa Banha",
+                "image": null
+            }
+        ],
+        "tags": [
+            "Política"
+        ],
+        "keywords": {
+            "Bloco de Esquerda": 1.0,
+            "PSD Partido Social": 0.81,
+            "Partido Social Democrata": 0.81,
+            "Mariana Mortágua": 0.75,
+            "coordenadora do Bloco": 0.71,
+            "marcou presença": 0.17,
+            "decorre esta quinta-feira": 0.17,
+            "presença na greve": 0.0,
+            "greve dos enfermeiros": 0.0,
+            "enfermeiros dos centros": 0.0
+        },
+        "entities": {
+            "PER": [
+                "Luís Montenegro",
+                "Lusa"
+            ],
+            "LOC": [
+                "Mariana Mortágua",
+                "Lisboa",
+                "Montenegro",
+                "Governo",
+                "Notícia"
+            ],
+            "ORG": [
+                "Bloco de Esquerda",
+                "PSD Partido Social Democrata",
+                "SNS",
+                "Forças"
+            ],
+            "MISC": null
+        },
+        "sentiment": "Neutro"
+    }
+]

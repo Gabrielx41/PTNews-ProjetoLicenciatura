@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/Calendario.css" />
+  <link rel="stylesheet" type="text/css" href="../static/css/HomePage.css" />
+{% endblock %}
+  
+{% block content %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="../static/js/FormatarData.js"></script>
+  <script src="../static/js/CheckboxJornais.js"></script>
+  <script src="../static/js/Calendario.js"></script>
+  <script src="../static/js/Home.js"></script>
+
+  <div id="container-main">
+    <div class="background-image">
+      <img src="../static/images/logotipo.png" alt="Logotipo">
+    </div>
+
+      <form class="search-container">
+        <div class="search-wrapper">
+          <input type="text" id="search-bar" placeholder="Portugal">
+          <img class="search-icon" src="../static/images/lupa.png">
+        </div>
+
+        <br>
+        <div class="container-avancadas">
+          <div class="radio-container" id="advanced-options">
+            <div class="but-radio">
+              <input type="radio" id="texto" name="userType" value="texto" checked>
+              <label for="texto">Texto</label>
+          
+              <input type="radio" id="percentagem" name="userType" value="percentagem">
+              <label for="percentagem">Análise</label>
+              
+              <input type="radio" id="imagem" name="userType" value="imagem">
+              <label for="imagem">Imagem</label>
+              
+              <input type="radio" id="autor" name="userType" value="autor">
+              <label for="autor">Autor</label>
+
+              <input type="radio" id="grafo" name="userType" value="grafo">
+              <label for="grafo">Grafo</label>
+              
+              <input type="checkbox" id="show-options-toggle">
+              <label for="show-options-toggle" id="show-options-label" class="label-pesquisa-avancada" style="color:black">Pesquisa Avançada</label>
+            </div>
+
+            <div id="container-advanced-options" style="display: none;">
+
+              <input type="checkbox" id="checkbox" class="checkbox-psqExata" style="display: none;">
+              <label for="checkbox" style="margin-left:1px">Pesquisa Exata</label>
+
+              <div class="data-hora-container">
+                <label>Selecione a data:</label>
+                <div class="date-range">
+                  <span>De:</span>
+                  <input type="text" id="datetimepickerMin" class="form-control">
+                  <div style="display:block" class="containerMax">
+                    <span>Até:</span>
+                    <input type="text" id="datetimepickerMax" class="form-control">
+                  </div>
+                </div>
+              </div>
+              
+              <div id="checkboxContainer" style="margin-left:1px"></div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

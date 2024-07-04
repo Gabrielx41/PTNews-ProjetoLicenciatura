@@ -1,0 +1,245 @@
+.noticia-container {
+    width: 75%;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    padding-bottom: 0;
+    margin-bottom: 40px;
+}
+.titulo {
+    font-size: 40px;
+    color: black;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+.lead {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 30px;
+}
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.source-info{
+    display: flex;
+}
+  
+.img-logo-source{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.source{
+    margin-top: 1px;
+    font-weight: bold;
+}
+
+.autor {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.autor-info {
+    display: flex;
+    align-items: center;
+}
+
+.autor-imagem {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.icon-entidades{
+    width: 35px;
+    height: 35px;
+}
+
+.autor-nome {
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #c1e0ff;
+}
+.data {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+.content {
+    line-height: 1.6;
+    margin-bottom: 60px;
+}
+
+#content{
+    text-align: justify;
+    margin: auto;
+}
+
+.content img {
+    width: 100%;
+    height: 450px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+}
+
+#keywords, .entities, .autor, .geolocalizacao{
+    margin-top: 20px;
+}
+
+#keywords strong, .entities strong, .autor strong, .geolocalizacao strong{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: black;
+}
+
+#keywords span{
+    cursor: pointer;
+}
+
+#keywords span:hover{
+    font-weight: bold;
+}
+
+#keywords span, .entities li {
+    background-color: white;
+    color: black;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 2px 7px;
+    margin-left: 0;
+    border-radius: 5px;
+}
+#keywords span {
+    margin-bottom: 5px;
+}
+.entities ul {
+    list-style: none;
+    padding: 0;
+}
+.entities ul li {
+    margin-bottom: 5px;
+}
+
+.entities ul li span{
+    text-decoration: underline;
+    text-decoration-color: #c1e0ff;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 7px; 
+}
+
+.entities ul li span:hover{
+    text-decoration-color: #7fa2c4;
+}
+
+.link_noticia {
+    color: #7fa2c4;
+    text-decoration: none;
+}
+.link_noticia_container{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.link_noticia:hover{
+    text-decoration: underline;
+    text-decoration-color: #7fa2c4;
+    font-size: 16.4px;
+}
+
+#mapa {
+    position: relative;
+    width: 350px;
+    height: 250px;
+}
+
+iframe {
+    border-radius: 10px; 
+    width: 100%;
+    height: 100%;
+}
+
+#spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #323232;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.imagem-noticia{
+    cursor: pointer;
+}
+
+#toggle-content{
+    text-decoration: none;
+    color: #7fabd7;
+    font-weight: bold;
+}
+
+#toggle-content:hover{
+    font-size: 16.4px;
+    text-decoration: underline;
+}
+
+.keywordContent{
+    cursor: pointer;
+}
+
+.autor-nome:hover{
+    text-decoration-color:#7fa2c4;
+}
+
+.keywordContent:hover{
+    text-decoration: underline;
+    text-decoration-color:#7fa2c4;
+    font-size: 18px;
+}
+
+@media (max-width: 1200px) {
+    .content img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 800px) {
+    .content img {
+        height: 300px;
+    }
+}
+@media (max-width: 600px) {
+    .content img {
+        height: 200px;
+    }
+}
+@media (max-width: 480px) {
+    #mapa {
+        width: 100%;
+    }
+    .noticia-container {
+        width: 90%;
+        padding: 0;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    {% block head %}{% endblock %}
+    <title>PTNews</title>
+    <link rel="icon" href="../static/images/logotipoComFundo.png"/>
+  </head>
+  <body>
+    <script src="../static/js/Navbar.js"></script>
+
+    {% if navbar %}
+    <header>
+        <nav>
+          <ul class="sidebar">
+            <li onclick=hideSidebar()><a class="icon-fechar" alt="icon-fechar" href="#">&#10006</a></li>
+            <div class="sidebarJornais">
+              <li><a href="/jornais/24h">24H</a></li>
+              <li><a href="/trends">Trends</a></li>
+              <li><a href="/estatisticas">Estatísticas</a></li>
+              <li>
+                <a href="#">Jornais</a>
+                <ul>
+                  <li><a href="/jornais/DNoticias">Diário de Notícias</a></li>
+                  <li><a href="/jornais/Eco">ECO</a></li>
+                  <li><a href="/jornais/Expresso">Expresso</a></li>
+                  <li><a href="/jornais/JNegocios">Jornal de Negócios</a></li>
+                  <li><a href="/jornais/IOnline">Jornal i</a></li>
+                  <li><a href="/jornais/NAM">Notícias ao Minuto</a></li>
+                  <li><a href="/jornais/Observador">Observador</a></li>
+                  <li><a href="/jornais/Público">Público</a></li>
+                  <li><a href="/jornais/Renascenca">Renascença</a></li>
+                  <li><a href="/jornais/Sapo24">Sapo24</a></li>
+                  <li><a href="/jornais/SicNoticias">SIC Notícias</a></li>
+                  {% if isAdmin %}
+                    <li class="admin-sidebar"><a href="/admin">Admin</a></li>
+                  {% endif %}
+                    <li class="logout-sidebar"><a href="/logout">Logout</a></li>
+                </ul>
+              </li>
+              {% if isAdmin %}
+                <li><a href="/admin">Admin</a></li>
+              {% endif %}
+              <li><a href="/logout">Logout</a></li>
+            </div>
+          </ul>
+
+          <ul>
+            <li class="home-navbar"><a href="/">PTNews</a></li>
+            <li class="hideOnMobile"><a href="/jornais/24h">24H</a></li>
+            <li class="hideOnMobile"><a href="/trends">Trends</a></li>
+            <li class="hideOnMobile"><a href="/estatisticas">Estatísticas</a></li>
+            <li class="hideOnMobile">
+              <a href="#">Jornais</a>
+              <ul>
+                <li class="hideOnMobile"><a href="/jornais/DNoticias">Diário de Notícias</a></li>
+                <li class="hideOnMobile"><a href="/jornais/Eco">ECO</a></li>
+                <li class="hideOnMobile"><a href="/jornais/Expresso">Expresso</a></li>
+                <li class="hideOnMobile"><a href="/jornais/JNegocios">Jornal de Negócios</a></li>
+                <li class="hideOnMobile"><a href="/jornais/IOnline">Jornal i</a></li>
+                <li class="hideOnMobile"><a href="/jornais/NAM">Notícias ao Minuto</a></li>
+                <li class="hideOnMobile"><a href="/jornais/Observador">Observador</a></li>
+                <li class="hideOnMobile"><a href="/jornais/Público">Público</a></li>
+                <li class="hideOnMobile"><a href="/jornais/Renascenca">Renascença</a></li>
+                <li class="hideOnMobile"><a href="/jornais/Sapo24">Sapo24</a></li>
+                <li class="hideOnMobile"><a href="/jornais/SicNoticias">SIC Notícias</a></li>
+              </ul>
+            </li>
+          {% if isAdmin %}
+            <li class="hideOnMobile"><a href="/admin">Admin</a></li>
+          {% endif %}
+            <li class="hideOnMobile"><a href="/logout">Logout</a></li>
+            <li class="menu-button" onclick=showSidebar()>
+              <img src="../static/images/burger-menu.png" class="burger-menu" alt="icon-burger-menu">
+            </li>
+          </ul>
+          
+        </nav>
+      </header>
+    {% endif %}
+
+    {% if show_spinner %}
+      <script src="../static/js/Loading.js"></script>
+      <div id="loading" class="loading-container">
+        <div class="spinner">
+          <img src="../static/images/loading.gif" alt="spinner" style="width=125px;height:125px">
+        </div>
+      </div>
+    {% endif %}
+    <div id="content-index" class="{% if show_spinner %}hidden{% endif %}">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <button onclick="topFunction()" id="scrollTopBtn" title="Ir para o topo">
+      <img src="../static/images/up.png" alt="Ir para o topo" style="width:20px; height:20px;">
+    </button>
+
+
+
+  </body>
+</html>

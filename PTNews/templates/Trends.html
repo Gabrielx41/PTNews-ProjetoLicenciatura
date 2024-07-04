@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="../static/css/Error.css" />
+  <link rel="stylesheet" type="text/css" href="../static/css/JornaisPage.css" />
+  <link rel="stylesheet" type="text/css" href="../static/css/Trends.css" />
+{% endblock %}
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/FuncPesquisa.js"></script>
+    <script src="../static/js/FormatarData.js"></script>
+    <script src="../static/js/GetNomes.js"></script>
+    <script src="../static/js/Trends.js"></script>
+    <script src="../static/js/cima.js"></script>
+
+    <div id="loading2" class="loading-container">
+    <img src="../static/images/loading.gif" alt="spinner" style="width=125px;height:125px">
+    </div>
+
+    <h1 class="title">Tópicos mais pesquisados nas últimas 24 horas</h1>
+    <div id="container-topicos"></div>
+
+    <div id="error"></div>
+
+{% endblock %}

@@ -1,0 +1,140 @@
+.background-image{
+  display: block;
+  margin-left: calc(50% - 150px);
+}
+.background-image img{
+  width: 300px;
+  height: 300px;
+}
+
+.radio-container{
+  width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+.but-radio{
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.but-radio label{
+  font-weight: bold;
+  font-size: 16px;
+  color: #7fa2c4;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.radio-container input[type="radio"] + label{
+  border: 1px solid #7fa2c4;
+}
+
+.radio-container input[type="checkbox"] + label{
+  margin-right: 0;
+}
+
+.container-home{
+  display: flex;
+}
+
+.search-container {
+  margin-top:0;
+}
+
+.container-tabela{
+  width: calc(30% - 38px);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 90px;
+}
+
+.container-tabela table{
+  border-collapse: collapse;
+  margin: auto;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+  
+.container-tabela table thead tr{
+  background-color: #7fa2c4;
+  color: #F1F3F5;
+  font-weight: bold;
+}
+
+.container-tabela th, .container-tabela td {
+  padding: 9px;
+  text-align: left;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.container-tabela td{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.container-tabela table tbody tr{
+  border-bottom: 2px solid white;
+}
+
+.container-tabela table tbody tr:last-of-type{
+  border-bottom: 2px solid #7fa2c4;
+}
+
+#container-advanced-options{
+  margin-bottom: 100px;
+}
+
+.container-tabela table tbody tr:hover{
+  background-color: #7fa2c4;
+  color: #F1F3F5;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+  border-radius: 5px;
+}
+
+@media (max-width: 1060px) {
+  .container-tabela{
+    display: none;
+  }
+  
+  .search-container{
+    margin-left: calc(15% - 24px);
+  }
+}
+
+@media (max-width: 480px) {
+    .background-image{
+      display: none;
+    }
+    .search-container{
+      margin-top:50px;
+    }
+}
+
+@media (max-width: 320px) {
+  .but-radio{
+    display: flex;
+    flex-direction: column;
+  }
+  .but-radio label{
+    width: 91.5%;
+  }
+  .search-container{
+      margin-bottom:10px;
+      margin-top: 25px;
+  }
+  .noticia-img{
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  .img-container-pesquisa{
+    height: 80%;
+  }
+  #jornalSelect{
+    margin-right: 10px;
+  }
+}

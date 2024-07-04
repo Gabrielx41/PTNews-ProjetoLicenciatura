@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="../static/css/AdminPage.css" />
+{% endblock %}
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/Utilizadores.js"></script>
+    <script src="../static/js/Olho.js"></script>
+    <div class="container">
+        <div class="column">
+            <h2>Adicionar Utilizador</h2><br>
+            <form class="userForm" id="addUserForm">
+                <label for="username" class= "label-username">Username:</label>
+                <input type="text" id="username" class="input-username" name="username" required/>
+                <br>
+                
+                <label for="password" class="label-password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required/>
+                    <img src="../static/images/hidden.png" class="eye-icon" alt="icon-eye">
+                </div>
+                <div id="error-message" style="display: none;" class="error-message"></div>
+                <div class="radio-container">
+                    <label>Tipo de Utilizador:</label><br><br>
+
+                    <input type="radio" id="admin" name="userType" value="admin">
+                    <label for="admin">Administrador</label>
+                    
+                    <input type="radio" id="regular" name="userType" value="regular" checked>
+                    <label for="regular">Utilizador</label><br><br>
+                </div>
+                <button type="submit" class="botao-adicionar">Adicionar Utilizador</button>
+            </form>
+        </div>
+
+        <div class="column">
+            <h2 class="h2">Lista de Utilizadores</h2>
+            <table class="userTable">
+                <thead>
+                    <tr>
+                        <th class="username-th">Username</th>
+                        <th>Tipo de Utilizador</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody class="userList">
+
+                </tbody>
+            </table>
+            <div id="error-message-remover" style="display: none;" class="error-message-remover"></div>
+        </div>
+    </div>
+{% endblock %}

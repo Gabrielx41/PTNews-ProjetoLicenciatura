@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/PesquisaResultados.css" />
+  <link rel="stylesheet" type="text/css" href="../static/css/JornaisPage.css" />
+{% endblock %}
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/JornaisJS.js"></script>
+    <script src="../static/js/GetNomes.js"></script>
+    <script src="../static/js/Paginacao.js"></script>
+    <script src="../static/js/FormatarData.js"></script>
+    <script src="../static/js/cima.js"></script>
+
+    <div id="loading2" class="loading-container">
+      <img src="../static/images/loading.gif" alt="spinner" style="width=125px;height:125px">
+    </div>
+    
+    <div id="jornal" data-nome-jornal="{{ nome_jornal }}"></div>
+
+      <div class="info-resultados">
+        <div class="container-resultados-info">
+          <span id="num-resultados"></span>
+          <span id="info-data"></span>
+        </div>
+        <div class="container-ordem" style="visibility:hidden">
+          <select id="ordem">
+            <option value="ord" style="display:none">Ordenar por</option>
+            <option value="desc">Mais Recente</option>
+            <option value="asc">Mais Antigo</option>
+          </select>
+        </div>
+      </div>
+      <div id="noticias-container" style="display:flex"></div>
+  
+    <div id="pagination">
+      <a id="recuar"><</a>
+      <a id="primeiro">1</a>
+      <span id="ellipsis1"><i class="fas fa-ellipsis-h"></i></span>
+      <a id="um">1</a>
+      <a id="dois">2</a>
+      <a id="tres">3</a>
+      <a id="quatro">4</a>
+      <a id="cinco">5</a>
+      <span id="ellipsis2"><i class="fas fa-ellipsis-h"></i></span>
+      <a id="ultimo"></a>
+      <a id="avancar">></a>
+    </div>
+
+{% endblock %}

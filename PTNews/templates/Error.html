@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="../static/css/Error.css" />
+{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <h1 class="error-heading">Erro 404</h1>
+    <p class="error-message">Esta página não está disponível. Lamentamos o incómodo.</p>
+    <a href="/">
+        <button class="error-button">Página Inicial</button>
+    </a>
+</div>
+{% endblock %}

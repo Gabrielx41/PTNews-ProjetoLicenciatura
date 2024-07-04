@@ -1,0 +1,240 @@
+@media only screen and (min-width: 1000px) {
+    .background-image-login {
+        width: 100%;
+        height: 100vh;
+        background-image: url("../images/background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container-login {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 25%;
+        padding: 3.5%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 100px #7fa2c4;
+        text-align: center;
+    }
+
+    .h2-login {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 10%;
+    }
+
+    .p-login {
+        font-weight: bold;
+        color: #666;
+        margin-bottom: 10%;
+    }
+
+    .username-login,
+    .botao-login {
+        width: 100%;
+        height: 7.5vh;
+        margin-bottom: 4%;
+        border: none;
+        border-radius: 15px;
+        padding-left: 4.5%;
+        padding-right: 4.5%;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        border: 2px solid #7fa2c4;
+        transition: border-color 1s ease;
+        font-size: 16px;
+    }
+
+    .password-container{
+        width: 100%;
+        height: 7.5vh;
+        margin-bottom: 4%;
+        border: none;
+        border-radius: 15px;
+        padding-left: 4.5%;
+        padding-right: 4.5%;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        border: 2px solid #7fa2c4;
+        transition: border-color 1s ease;
+        display: flex;
+        align-items: center;
+    }
+
+    .password-container input{
+        width: 100%;
+        border: 0;
+        outline: 0;
+        background-color: #f9f9f9;
+        font-size: 16px;
+    }
+    .password-container img{
+        padding-left: 2.3%;
+        width: 21px;
+        cursor: pointer;
+    }
+
+
+    .botao-login {
+        background-color: #8cabce;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+    }
+
+    .botao-login:hover {
+        background-color: #7fa2c4;
+        border-color: #7fa2c4;
+        text-shadow: 0 0 2px #000;
+    }
+
+    .botao-login{
+        font-size: 16px;
+    }
+
+    .alert-login {
+        color: #a94442;
+        background-color: #f2dede;
+        border: 1px solid #ebccd1;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: -10px;
+    }
+}
+
+/* Estilos para telas menores que 1000px (exemplo: dispositivos móveis) */
+@media only screen and (max-width: 1000px) {
+    .background-image-login {
+     width: 100%;
+     height: 100vh;
+     background-image: url("../images/background.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+    }
+    .container-login {
+      width: 80%;
+      margin: auto;
+      background-color: #fff; /* Cor de fundo principal */
+      border-radius: 10px;
+      padding: 5.5%;
+      box-shadow: 0 0 100px #7fa2c4; /* Sombra suave */
+      text-align: center;
+    }
+  
+    .background-image-login {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+      background-color: #7fa2c4; /* Cor de fundo principal */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .h2-login {
+      font-size: 28px;
+      color: #333; /* Cor do texto mais escura */
+      margin-bottom: 7%;
+    }
+  
+    .p-login {
+      font-weight: bold;
+      color: #666; /* Cor do texto mais escura */
+      margin-bottom: 7%;
+      font-size: 20px;
+    }
+  
+    .username-login,
+    .botao-login {
+      width: 100%;
+      height: 7.5vh;
+      margin-bottom: 4%;
+      border: none;
+      border-radius: 15px;
+      padding-left: 4.5%;
+      padding-right: 4.5%;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      border: 2px solid #7fa2c4;
+      transition: border-color 1s ease;
+      font-size: 20px;
+    }
+  
+    .password-container {
+      width: 100%;
+      height: 7.5vh;
+      margin-bottom: 4%;
+      border: none;
+      border-radius: 15px;
+      padding-left: 4.5%;
+      padding-right: 4.5%;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      border: 2px solid #7fa2c4;
+      transition: border-color 1s ease;
+      display: flex;
+      align-items: center;
+    }
+  
+    .password-container input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background-color: #f9f9f9;
+      font-size: 20px;
+    }
+  
+    .password-container img {
+      padding-left: 2.3%;
+      width: 21px;
+      cursor: pointer;
+    }
+  
+    .botao-login {
+      background-color: #8cabce;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+      font-size: 22px;
+    }
+  
+    .botao-login:hover {
+      background-color: #7fa2c4;
+      border-color: #7fa2c4;
+      text-shadow: 0 0 2px #000;
+    }
+  
+    .alert-login {
+      color: #a94442;
+      background-color: #f2dede;
+      border: 1px solid #ebccd1;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 20px;
+    }
+  }
+
+#noticias-container{
+  display: none;
+}
+
+@media screen and (max-width: 480px)  {
+    .h2-login {
+        margin-top: 10%;
+        font-size: 24px;
+    }
+    .p-login,
+    .username-login,
+    .botao-login,
+    .alert-login,
+    .botao-login,
+    .password-container input {
+        font-size: 16px;
+    }
+    
+}
