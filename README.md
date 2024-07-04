@@ -25,6 +25,18 @@ O website onde os utilizadores podem aceder ás notícias recolhidas e ás respe
 * static: Contém os dados estáticos: imagens, css, js.
 * templates: Contém todos os ficheiros HTML utilizados na construção do website. 
 
+## Fontes de Notícias Utilizadas
+* ECO
+* Público
+* Observador
+* Jornal i
+* Jornal de Negócios
+* Expresso
+* Notícias ao Minuto
+* Diário de Notícias
+* Renascença
+* Sapo24
+* SIC Notícias
 ## Tecnologias Utilizadas
 ![Python](https://img.shields.io/badge/Python-42.9%25-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-30.3%25-yellow)
