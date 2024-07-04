@@ -5,7 +5,7 @@ Este repositório contém o projeto PTNews desenvolvido como projeto final de Li
 * python3 -m PTNews_Script.iniciar
 ## Estrutura do Projeto
 ### PTNews_Script
-* Dados: Guardar os dados em ficheiros JSON.
+* Dados: Contém os dados em ficheiros JSON.
 * Ficheiros: Contém as operações de manipulação de ficheiros.
 * GetDados: Contém as operações para extração de dados.
 * Jornais: Contém as operações de gerenciamento de cada fonte de noticias.
