@@ -21,3 +21,6 @@ O website onde os utilizadores podem aceder ás notícias recolhidas e ás respe
 ## Clonar o Repositório:
 ```bash
    git clone https://github.com/Gabrielx41/PTNews-ProjetoLicenciatura.git
+```
+## Contacto
+Para quaisquer questões ou problemas, abra um 'issue' no repositório ou contacte gabriel.lazaro@ubi.pt.
