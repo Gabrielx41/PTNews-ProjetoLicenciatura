@@ -3,6 +3,7 @@
 Este repositório contém o projeto PTNews desenvolvido como projeto final de Licenciatura de Engenharia Informática da UBI. O projeto tem como objetivo a extração de notícias de 11 fontes diferentes, disponibilização das notícias e estatísticas das mesmas.
 ## Estrutura do Projeto
 ### Extração dos Dados
+* iniciar.py
 
 ## Tecnologias Utilizadas
 ![Python](https://img.shields.io/badge/Python-42.9%25-blue)
