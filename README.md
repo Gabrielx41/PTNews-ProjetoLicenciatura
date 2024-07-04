@@ -5,8 +5,19 @@ Este repositório contém o projeto PTNews desenvolvido como projeto final de Li
 ### Extração dos Dados
 * iniciar.py
 
+### PTNews_Script
+
+## PTNews
+O website onde os utilizadores podem aceder ás notícias recolhidas e ás respetivas estatísticas.
+* static: Contém os dados estáticos: imagens, css, js.
+* templates: Contém todos os ficheiros HTML utilizados na construção do website. 
+
 ## Tecnologias Utilizadas
 ![Python](https://img.shields.io/badge/Python-42.9%25-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-30.3%25-yellow)
 ![CSS](https://img.shields.io/badge/CSS-14.9%25-purple)
 ![HTML](https://img.shields.io/badge/HTML-11.9%25-red)
+
+## Clonar o Repositório:
+```bash
+   git clone https://github.com/Gabrielx41/PTNews-ProjetoLicenciatura.git
