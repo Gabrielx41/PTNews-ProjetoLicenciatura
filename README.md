@@ -39,10 +39,10 @@ O website onde os utilizadores podem aceder ás notícias recolhidas e ás respe
 * Sapo24
 * SIC Notícias
 ## Tecnologias Utilizadas
-![Python](https://img.shields.io/badge/Python-42.9%25-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-30.3%25-yellow)
-![CSS](https://img.shields.io/badge/CSS-14.9%25-purple)
-![HTML](https://img.shields.io/badge/HTML-11.9%25-red)
+![Python](https://img.shields.io/badge/Python-42.2%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-30.7%25-yellow)
+![CSS](https://img.shields.io/badge/CSS-14.8%25-purple)
+![HTML](https://img.shields.io/badge/HTML-12.3%25-red)
 
 ## Clone o Repositório:
 ```bash
