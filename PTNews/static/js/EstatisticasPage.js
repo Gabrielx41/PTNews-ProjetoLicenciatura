@@ -48,10 +48,4 @@ function obterDados() {
 
 document.addEventListener("DOMContentLoaded", function () {
     obterDados(graficos);
-
-    setTimeout(function() {
-        $('#container-graficos').empty();
-        obterDados(graficos);
-        document.getElementById('loading2').style.display = 'block';
-    }, 900000);
 });

@@ -48,7 +48,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_API(url)
                 if novos_dados:
-                    publico(novos_dados, ultimo_id, jornal)
+                    try:
+                        publico(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("Público erro main: " + e)
                     
                 
                 sleep(1200) # 20 minutos
@@ -59,7 +62,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_API(url)
                 if novos_dados:
-                    eco(novos_dados, ultimo_id, jornal)
+                    try:
+                        eco(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("Eco erro main: " + e)
                     
                 
                 sleep(600) # 10 minutos
@@ -70,10 +76,13 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_API(url)
                 if novos_dados:
-                    observador(novos_dados, ultimo_id, jornal)
+                    try:
+                        observador(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("Observador erro main: " + e)
                           
                   
-                sleep(900) # 15 minutos
+                sleep(7200) # 2 horas
                 
                 
     ############################## RSS ##############################
@@ -83,7 +92,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    expresso(novos_dados, ultimo_id, jornal)
+                    try:
+                        expresso(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("Expresso erro main: " + e)
                     
                 
                 sleep(1200) # 20 minutos
@@ -94,10 +106,13 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    ionline(novos_dados, ultimo_id, jornal)
+                    try:
+                        ionline(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("IOnline erro main: " + e)
                     
                 
-                sleep(900) # 15 minutos
+                sleep(3600) # 1 hora
 
 
         case "NAM":
@@ -105,7 +120,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    nam(novos_dados, ultimo_id, jornal)
+                    try:
+                        nam(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("NAM erro main: " + e)
                         
                 
                 sleep(300) # 5 minutos
@@ -116,7 +134,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    dnoticias(novos_dados, ultimo_id, jornal)
+                    try:
+                        dnoticias(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("DNoticias erro main: " + e)
                           
                                   
                 sleep(3600) # 1 hora
@@ -127,7 +148,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    jnegocios(novos_dados, ultimo_id, jornal)
+                    try:
+                        jnegocios(novos_dados, ultimo_id, jornal)
+                    except Exception as e:
+                        print("JNegocios erro main: " + e)
                         
                     
                 sleep(1500) # 25 minutos
@@ -138,7 +162,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    renascenca(novos_dados, ultimo_id, jornal)
+                    try:
+                        renascenca(novos_dados, ultimo_id, jornal)
+                    except:
+                        print("Renascença erro main: " + e)
                              
                                
                 sleep(900) # 15 minutos
@@ -149,7 +176,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    sapo24(novos_dados, ultimo_id, jornal)
+                    try:
+                        sapo24(novos_dados, ultimo_id, jornal)
+                    except:
+                        print("Sapo24 erro main: " + e)
                     
                 
                 sleep(1500) # 25 minutos
@@ -160,7 +190,10 @@ def main(jornal, url):
                 
                 novos_dados = get_dados_RSS(url)
                 if novos_dados:
-                    sicnoticias(novos_dados, ultimo_id, jornal)
+                    try:
+                        sicnoticias(novos_dados, ultimo_id, jornal)
+                    except:
+                        print("SicNotícias erro main: " + e)
                             
                 
                 sleep(900) # 15 minutos

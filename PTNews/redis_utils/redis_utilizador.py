@@ -80,13 +80,13 @@ def obter_dados_utilizador(username):
         return {}
     
     
-def obter_dados_utilizadores():
+def obter_dados_utilizadores(query):
     global r
 
     #Verifica se conseguiu ligar ao Redis
     try:
             lista = []
-            keys = r.ft("users").search("*").docs
+            keys = r.ft("users").search(query).docs
             
             # Iterando sobre as chaves e obtendo os valores correspondentes
             for key in keys:

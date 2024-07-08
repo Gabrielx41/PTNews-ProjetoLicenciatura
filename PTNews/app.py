@@ -115,7 +115,7 @@ def admin_page():
 @admin_required
 def lista_utilizadores():
     if(utilizador_existe(current_user.id)):
-        return jsonify(obter_dados_utilizadores())
+        return jsonify(obter_dados_utilizadores(Query('*').paging(0, 10000)))
     else:
         return redirect("/logout")
 
@@ -222,7 +222,7 @@ def api_jornais_num_noticias(nome_jornal):
         return redirect("/logout")
 
 
-@app.route('/jornais/<nome_jornal>')
+@app.route('/media/<nome_jornal>')
 @login_required
 def jornais_page(nome_jornal):
     if(utilizador_existe(current_user.id)):
@@ -338,14 +338,18 @@ def api_pesquisa_selectOpt(selectedOption):
                 
             case 'grafo':
                 window_size = 0
-                top_n = 10
                 target_word = searchText.lower()
                 ii_coccur = get_keywords_redis("keywords")
+                    
+                graphs = {}  # Dicionário para armazenar os grafos
 
-                top_cooccurrences = ii_coccur.get_top_cooccurrences(target_word, window_size=window_size, top_n=top_n)
-                
-                if top_cooccurrences:
-                    resultado = [build_graph_for_keyword(ii_coccur, target_word, top_cooccurrences)]
+                for i in range(5, 21):
+                    top_cooccurrences = ii_coccur.get_top_cooccurrences(target_word, window_size=window_size, top_n=i)
+                    if top_cooccurrences:
+                        graph = build_graph_for_keyword(ii_coccur, target_word, top_cooccurrences)
+                        graphs[i] = graph
+                if graphs:
+                    resultado = [graphs]
     
         if resultado:
             return jsonify({"data": resultado, "searchText": tempSearchText, "jornal": sources, 'inicio': dataMin, 'fim': dataMax, 'psqExata': session.get('psqExata')})
@@ -493,8 +497,17 @@ def api_estatisticas():
             if autores != None:
                 for autor in autores:
                     top_autores[autor['name']] += 1
+                    # top_autores['Outros'] += 1
 
-        resultado2 = dict(sorted(top_autores.items(), key=lambda x: x[1], reverse=True)[:10])
+        resultado2 = dict(sorted(top_autores.items(), key=lambda x: x[1], reverse=True)[:11])
+
+        # total_outros = resultado2['Outros']
+        # del resultado2['Outros']
+
+        # for autor, publicacoes in resultado2.items():
+        #     total_outros -= publicacoes
+
+        # resultado2['Outros'] = total_outros
         
 
             ############ wordcloud ############

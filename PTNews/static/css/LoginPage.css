@@ -16,7 +16,7 @@
         padding: 3.5%;
         background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 0 100px #7fa2c4;
+        box-shadow: 0 0 100px #50789F;
         text-align: center;
     }
 
@@ -43,7 +43,7 @@
         padding-right: 4.5%;
         box-sizing: border-box;
         background-color: #f9f9f9;
-        border: 2px solid #7fa2c4;
+        border: 2px solid #50789F;
         transition: border-color 1s ease;
         font-size: 16px;
     }
@@ -58,7 +58,7 @@
         padding-right: 4.5%;
         box-sizing: border-box;
         background-color: #f9f9f9;
-        border: 2px solid #7fa2c4;
+        border: 2px solid #50789F;
         transition: border-color 1s ease;
         display: flex;
         align-items: center;
@@ -79,7 +79,7 @@
 
 
     .botao-login {
-        background-color: #8cabce;
+        background-color: #53799f;
         color: white;
         cursor: pointer;
         transition: background-color 0.3s ease;
@@ -87,8 +87,8 @@
     }
 
     .botao-login:hover {
-        background-color: #7fa2c4;
-        border-color: #7fa2c4;
+        background-color: #50789F;
+        border-color: #50789F;
         text-shadow: 0 0 2px #000;
     }
 
@@ -121,7 +121,7 @@
       background-color: #fff; /* Cor de fundo principal */
       border-radius: 10px;
       padding: 5.5%;
-      box-shadow: 0 0 100px #7fa2c4; /* Sombra suave */
+      box-shadow: 0 0 100px #50789F; /* Sombra suave */
       text-align: center;
     }
   
@@ -129,7 +129,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       height: 100vh;
-      background-color: #7fa2c4; /* Cor de fundo principal */
+      background-color: #50789F; /* Cor de fundo principal */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -159,7 +159,7 @@
       padding-right: 4.5%;
       box-sizing: border-box;
       background-color: #f9f9f9;
-      border: 2px solid #7fa2c4;
+      border: 2px solid #50789F;
       transition: border-color 1s ease;
       font-size: 20px;
     }
@@ -174,7 +174,7 @@
       padding-right: 4.5%;
       box-sizing: border-box;
       background-color: #f9f9f9;
-      border: 2px solid #7fa2c4;
+      border: 2px solid #50789F;
       transition: border-color 1s ease;
       display: flex;
       align-items: center;
@@ -204,8 +204,8 @@
     }
   
     .botao-login:hover {
-      background-color: #7fa2c4;
-      border-color: #7fa2c4;
+      background-color: #50789F;
+      border-color: #50789F;
       text-shadow: 0 0 2px #000;
     }
   

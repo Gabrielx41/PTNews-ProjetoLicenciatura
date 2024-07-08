@@ -7,13 +7,14 @@
 {% block content %}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../static/js/Olho.js"></script>
+  <script src="../static/js/Login.js"></script>
 
   <div class="background-image-login">
     <div class="container-login">
       <h2 class='h2-login'>Bem-vindo</h2>
       <p class='p-login'>Por favor, insira as suas credencias para aceder a PTNews</p>
       <form action="/login" method="POST">
-        <input type="text" name="username" placeholder="Username" class='username-login' required />
+        <input type="text" id="username" name="username" placeholder="Username" class='username-login' required />
         
         <div class="password-container">
           <input type="password" id="password" name="password" placeholder="Password" class='password-login' required />

@@ -10,7 +10,6 @@ from ..Redis.redis import index_keywords, get_keywords_redis
 
 def publico(novos_dados, ultimo_id, jornal):
     if(novos_dados):
-
         for dados in novos_dados:
             if(ultimo_id[jornal] != str(dados['id'])):
 
@@ -74,6 +73,7 @@ def publico(novos_dados, ultimo_id, jornal):
 
                 ii_coccur = get_keywords_redis("keywords")
                 ii_coccur.update(content, keywords)
+                
                 index_keywords("keywords", ii_coccur.get_index())
 
             else:

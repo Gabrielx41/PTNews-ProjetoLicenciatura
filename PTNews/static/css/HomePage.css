@@ -21,14 +21,14 @@
 .but-radio label{
   font-weight: bold;
   font-size: 16px;
-  color: #7fa2c4;
+  color: #47709a;
   margin-bottom: 15px;
   display: flex;
   flex-wrap: wrap;
 } 
 
 .radio-container input[type="radio"] + label{
-  border: 1px solid #7fa2c4;
+  border: 1px solid #47709a;
 }
 
 .radio-container input[type="checkbox"] + label{
@@ -58,7 +58,7 @@
 }
   
 .container-tabela table thead tr{
-  background-color: #7fa2c4;
+  background-color: #47709a;
   color: #F1F3F5;
   font-weight: bold;
 }
@@ -80,7 +80,7 @@
 }
 
 .container-tabela table tbody tr:last-of-type{
-  border-bottom: 2px solid #7fa2c4;
+  border-bottom: 2px solid #47709a;
 }
 
 #container-advanced-options{
@@ -88,7 +88,7 @@
 }
 
 .container-tabela table tbody tr:hover{
-  background-color: #7fa2c4;
+  background-color: #47709a;
   color: #F1F3F5;
   cursor: pointer;
   transform: scale(1.05);

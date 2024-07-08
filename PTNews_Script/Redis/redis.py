@@ -50,7 +50,7 @@ def guardar_dados_ficheiro(data, file):
 #Função para guarda os dados no Redis
 def guardar_dados(data):
     global r, lock
-
+    is_indexed = False
     file = "PTNews_Script/Dados/" + data['source'] + ".json"
 
     #Se não conseguir ligar ao Redis, guarda os dados num ficheiro
@@ -67,7 +67,8 @@ def guardar_dados(data):
 
             lock.release()
 
-        os.remove(file)
+        if is_indexed:
+            os.remove(file)
 
     else:
         lock.acquire()
@@ -75,9 +76,9 @@ def guardar_dados(data):
         is_indexed = index_document(r, data['source'], data)
 
         lock.release()
-
     if(not is_indexed):
         guardar_dados_ficheiro(data, file)
+
 
 
 def index_keywords(key, objeto):

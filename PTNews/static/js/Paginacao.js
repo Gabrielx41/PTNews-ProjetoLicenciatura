@@ -1,6 +1,6 @@
 function atualizarPaginacao() {
     var paginas = [];
-    var numPaginasVisiveis = window.innerWidth < 600 ? 3 : 5;
+    var numPaginasVisiveis = window.innerWidth < 600 ? 4 : 5;
     var inicio = Math.max(1, paginaAtual - Math.floor(numPaginasVisiveis / 2));
     var fim = Math.min(totalPaginas, inicio + numPaginasVisiveis - 1);
 

@@ -21,9 +21,9 @@ function keyword_highlight(content, keywordText) {
     content = content.innerHTML;
     
     content = content.replace(/<b class="keywordContent">/g, '');
-    content = content.replace(/<b class="keywordContent" style="color:#7fa2c4;text-decoration-color:black;">/g, '');
+    content = content.replace(/<b class="keywordContent" style="color:#50789F;text-decoration-color:black;">/g, '');
     content = content.replace(/<\/b>/g, '');
-    content = content.replaceAll(keywordText, '<b class="keywordContent" style="color:#7fa2c4;text-decoration-color:black;">'+keywordText+'</b>');
+    content = content.replaceAll(keywordText, '<b class="keywordContent" style="color:#50789F;text-decoration-color:black;">'+keywordText+'</b>');
 
     document.getElementById("content").innerHTML = content;
     
@@ -86,10 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (keywordAnterior) {
                 keywordAnterior.style.color = "black";
             }
-            this.style.color = "#7fa2c4";
+            this.style.color = "#50789F";
             keywordText = this.textContent;
             keyword_highlight(content, keywordText);
             keywordAnterior = this;
+            $('.keywordContent, .entities ul li span').on('click', function() {
+                pesquisar("texto", $(this).text(), true);
+            });
         });
     }
 

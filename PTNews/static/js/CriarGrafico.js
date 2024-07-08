@@ -1,7 +1,5 @@
 var graficosAtivos = {};
 var colors = [
-    'rgba(0, 0, 0, 0.8)',        // Preto
-    'rgba(139, 69, 19, 0.6)',    // Castanho
     'rgba(255, 0, 0, 0.6)',      // Vermelho
     'rgba(0, 128, 0, 0.6)',      // Verde
     'rgba(0, 0, 255, 0.6)',      // Azul
@@ -12,6 +10,8 @@ var colors = [
     'rgba(128, 128, 128, 0.6)',   // Cinza
     'rgba(127, 162, 196, 0.8)',  // Azul claro
     'rgba(0, 255, 255, 0.6)',    // Ciano
+    'rgba(0, 0, 0, 0.8)',        // Preto
+    'rgba(139, 69, 19, 0.6)',    // Castanho
 ];
 
     // Função para criar o gráfico usando Chart.js
@@ -195,9 +195,6 @@ function criarGraficoLinhas(dados, tipo) {
             return `${day}/${month}/${year}`;
         });
     
-        // Cores embaralhadas
-        colors = shuffleColors(colors);
-    
         jornais.forEach(jornal => {
             const dataValues = [];
             labels.forEach(date => {
@@ -217,7 +214,7 @@ function criarGraficoLinhas(dados, tipo) {
                 pointRadius: 1.5,
                 pointHoverRadius: 5,
                 pointHoverBackgroundColor: colors[num],
-                topPersons: dataValues.map(d => d.topPerson)
+                topPersons: dataValues.map(d => d.topPerson),
             });
             num += 1;
         });
@@ -249,7 +246,6 @@ function criarGraficoLinhas(dados, tipo) {
             return `${day}/${month}/${year}`;
         });
     
-        colors = shuffleColors(colors);
     
         jornais.forEach(jornal => {
             const dataValues = [];
@@ -257,7 +253,7 @@ function criarGraficoLinhas(dados, tipo) {
                 const value = dados[jornal][date] || 0;
                 dataValues.push(value);
             });
-    
+
             datasets.push({
                 label: obterNome(jornal),
                 data: dataValues,
@@ -268,7 +264,7 @@ function criarGraficoLinhas(dados, tipo) {
                 tension: 0.25,
                 pointRadius: 1.5,
                 pointHoverRadius: 5,
-                pointHoverBackgroundColor: colors[num]
+                pointHoverBackgroundColor: colors[num],
             });
             num += 1;
         });
@@ -278,7 +274,6 @@ function criarGraficoLinhas(dados, tipo) {
             return sumB - sumA; // Decrescente
         });
     }
-    
 
     if (graficosAtivos[tipo]) {
         graficosAtivos[tipo].destroy();
@@ -296,7 +291,7 @@ function criarGraficoLinhas(dados, tipo) {
         </a>
           <canvas id="${tipo}"></canvas>
       </div>`
-    )
+    );
     var ctx = document.getElementById(tipo).getContext('2d');
     graficosAtivos[tipo] = new Chart(ctx, {
         type: 'line',
@@ -321,7 +316,7 @@ function criarGraficoLinhas(dados, tipo) {
                     ticks: {
                         fontSize: 14,
                         autoSkip: true,
-                        maxRotation: 90,
+                        maxRotation: 0,
                         minRotation: 0
                     },
                     grid: {
@@ -329,7 +324,6 @@ function criarGraficoLinhas(dados, tipo) {
                     }
                 }
             },
-
             plugins: {
                 tooltip: {
                     mode: 'index',
@@ -378,24 +372,13 @@ function criarGraficoLinhas(dados, tipo) {
                     padding: {
                         bottom: 30
                     }
-                }
+                },
+                
             }
         }
     });
 }
 
-function shuffleColors(colors) {
-    // Cria uma cópia do array de cores para não modificar o original
-    let shuffledColors = colors.slice();
-
-    // Embaralha o array de cores usando o algoritmo Fisher-Yates
-    for (let i = shuffledColors.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledColors[i], shuffledColors[j]] = [shuffledColors[j], shuffledColors[i]];
-    }
-
-    return shuffledColors;
-}
 
 function criarGraficoPie(dados, tipo) {
     var labels = [];
@@ -454,7 +437,7 @@ function criarGraficoPie(dados, tipo) {
             labels: labels,
             datasets: [{
                 data: data,
-                backgroundColor: tipo == "Autores com mais publicações" ? shuffleColors(colors) : colors,
+                backgroundColor: colors,
                 borderColor: 'white',
                 borderWidth: 1,
             }]

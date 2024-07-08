@@ -20,19 +20,26 @@ function infoJornais(jornal){
 function formatarNoticia(data) {
     if ((selectedOption == "percentagem")){
         document.getElementById('container-graficos').style.display = 'flex';
-        document.getElementsByClassName('container-resultados')[0].style.display = 'none';
+        // document.getElementsByClassName('container-resultados')[0].style.display = 'none';
+        var numResultadosSpan = document.getElementById('pesquisa-resultados');
+           
+      
+        document.getElementsByClassName('ordenar-div')[0].style.display = 'none';
 
         data = data[0];
         var intervalId = setInterval(function() {
             if (totalNoticias !== 13) {
                 clearInterval(intervalId);
                 var percentagem_num_noticias = data["num_noticias"]
+                var resultado = 0;
+                console.log(percentagem_num_noticias)
                 for (var [chave, valor] of Object.entries(percentagem_num_noticias)) {
                     if (valor === null || valor === undefined || totalNoticias[chave] === 0){
                         valor = 0;
                         percentagem_num_noticias[chave] = 0;
                     }else{
-                        percentagem_num_noticias[chave] = (valor/totalNoticias[chave]) * 100;
+                        percentagem_num_noticias[chave] = (valor/totalNoticias[chave]) * 100
+                        resultado += valor;
                     }
                 }
                 $('#container-graficos').empty();
@@ -42,9 +49,12 @@ function formatarNoticia(data) {
 
                 if (Object.entries(data["num_sentiment"]).length > 0){
                     criarGraficoPie(data["num_sentiment"], "Análise de sentimentos das notícias para " + searchText);
+                    const valores = Object.values(data["num_sentiment"]);
+                    resultado = valores.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
                 }
-                
 
+                numResultadosSpan.innerHTML = 'Foram encontrados <strong> ' + resultado + '</strong> resultados para "<strong>' + searchText + '</strong>".<br><br>Entre <span class="dataSpan"> ' + fim + '</span> e <span class="dataSpan">' + inicio + '</span>.';
+                document.getElementsByClassName('container-resultados-info')[0].style.visibility = 'visible';
                 document.getElementsByClassName('search-container')[0].style.visibility = 'visible';
                 document.getElementById('bottom-section').style.visibility = 'visible';
                 document.getElementById('loading2').style.display = 'none';
@@ -85,16 +95,13 @@ function formatarNoticia(data) {
         $("html, body").animate({ scrollTop: $("#bottom-section").offset().top }, 1000);
     }
     else if (selectedOption == "grafo"){
-        $('#container-grafo').empty();
-        $('#opt-grafo').empty();
-        
         document.getElementsByClassName('container-resultados')[0].style.display = 'none';
-        
-        criarGrafoD3(data[0], searchText);
+        criarGrafoD3(data[0][10], searchText, data);
 
         document.getElementById('bottom-section').style.visibility = 'visible';
         document.getElementById('container-grafo').style.display = 'flex';
         document.getElementById('opt-grafo').style.display = 'block';
+        document.getElementById('slider-container').style.display = 'block';
         document.getElementsByClassName('search-container')[0].style.visibility = 'visible';
         document.getElementById('loading2').style.display = 'none';
         $("html, body").animate({ scrollTop: $("#bottom-section").offset().top }, 1000);
@@ -117,7 +124,7 @@ function formatarNoticia(data) {
                         <h1 class="titulo"><a href="/noticia/${idNoticia}" style="text-decoration: none; color: inherit">${noticia.title || ""}</a></h1>
                     </div>
                     <div class="div-lead">
-                        <p class="lead">${noticia.lead || ""}</p>
+                        <p class="lead">${truncateText(noticia.lead || "", 180)}</p>
                     </div>
                     <div class="div-source-published">
                         <div class="source-info">
@@ -148,7 +155,7 @@ $(document).ready(function() {
         success: function(num_noticias) {
                 totalNoticias = num_noticias;
 
-                if(selectedOptDiv != "percentagem"){
+                if(selectedOption != "percentagem"){
                     var numResultadosSpan = document.getElementById('pesquisa-resultados');
                     var intervalId = setInterval(function() {
                         if (fim !== undefined && inicio !== undefined) {
@@ -158,17 +165,17 @@ $(document).ready(function() {
                             }else{
                                 numResultadosSpan.innerHTML = 'Foram encontrados <strong> ' + totalNoticias + '</strong> resultados para "<strong>' + searchText + '</strong>"'+ jornalMessage +'.<br><br>Entre <span class="dataSpan"> ' + fim + '</span> e <span class="dataSpan">' + inicio + '</span>.';
                             }
-                                document.getElementsByClassName('container-resultados-info')[0].style.visibility = 'visible';
+                            document.getElementsByClassName('container-resultados-info')[0].style.visibility = 'visible';
                             totalPaginas = Math.ceil(totalNoticias / 12);
                             atualizarPaginacao();
-                            if(totalPaginas > 1 && !(selectedOption === "percentagem")){
+                            if(totalPaginas > 1){
                                 document.getElementById('pagination').style.display = 'block';
                             }
                         }
                     }, 100);
 
+                    atualizarPaginacao();
                 }
-                atualizarPaginacao();
             }
     });
 
@@ -210,20 +217,20 @@ function atualizarNoticias() {
             searchText = response.searchText;
             var jornal = response.jornal;
             
-            inicio = timestamp_toDate(response.inicio);
-            fim = timestamp_toDate(response.fim);
+            if (data != null && data.length > 0 && response.fim != undefined && response.inicio != undefined && response.fim != null && response.inicio != null) {
+                inicio = timestamp_toDate(response.inicio);
+                fim = timestamp_toDate(response.fim);
 
-            jornalMessage = infoJornais(jornal);
+                jornalMessage = infoJornais(jornal);
 
-            if(response.psqExata){
-                document.getElementById('checkbox').checked = true;
-            }
+                if(response.psqExata){
+                    document.getElementById('checkbox').checked = true;
+                }
 
-            selecionarJornais(jornal);
-            atualizarCalendario(fim, inicio);
-            atualizarPaginacao();
-
-            if (data != null && data.length > 0) {
+                selecionarJornais(jornal);
+                atualizarCalendario(fim, inicio);
+                atualizarPaginacao();
+            
 
                 document.getElementById('search-bar').value = searchText;
 
@@ -236,13 +243,33 @@ function atualizarNoticias() {
                 document.getElementById("error").style.display = "flex";
                 document.getElementById('loading2').style.display = 'none';
                 document.body.style.background = "#a8caeb";
+                if(response.fim != undefined && response.inicio != undefined && response.fim != null && response.inicio != null){
+                    inicio = timestamp_toDate(response.inicio);
+                    fim = timestamp_toDate(response.fim);
+                    jornalMessage = infoJornais(jornal);
 
-                $('#error').html(`
-                    <p class="error-message">Não foram encontradas notícias para a pesquisa [${getOption(selectedOption)}]: "<strong>${searchText}</strong>"${jornalMessage}.<br><br> entre as datas <span class="dataSpan">${fim}</span> e <span class="dataSpan">${inicio}</span>.</p>
-                    <a href="/">
-                        <button class="error-button">Voltar a pesquisar</button>
-                    </a>
-                `);
+                    $('#error').html(`
+                        <p class="error-message">Não foram encontradas notícias para a pesquisa [${getOption(selectedOption)}]: "<strong>${searchText}</strong>"${jornalMessage}.<br><br> Entre as datas <span class="dataSpan">${fim}</span> e <span class="dataSpan">${inicio}</span>.</p>
+                        <a href="/">
+                            <button class="error-button">Voltar a pesquisar</button>
+                        </a>
+                    `);
+                }else{
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleString('pt-PT', { 
+                        day: '2-digit', 
+                        month: '2-digit', 
+                        year: 'numeric', 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    }).replace(',', '');
+                    $('#error').html(`
+                        <p class="error-message">Pesquisa Inválida. Escolha a data entre <strong>19/06/2024 00:25</strong> e <strong>${formattedDate}</strong></span>.</p>
+                        <a href="/">
+                            <button class="error-button">Voltar a pesquisar</button>
+                        </a>
+                    `);
+                }
             }
         },
         error: function(error) {

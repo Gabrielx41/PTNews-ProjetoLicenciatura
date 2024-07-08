@@ -1,12 +1,18 @@
-function criarGrafoD3(graphData, target) {
+var num_coocorrencias = 10;
+var primeira = true;
+function criarGrafoD3(graphDataInicial, target, dados) {
+    $('#container-grafo').empty();
+    $('#opt-grafo').empty();
+    
     // Definir margens e dimensões do gráfico
     var margin = { top: 60, right: 20, bottom: 40, left: 20 };
     var width = window.innerWidth - margin.left - margin.right;
-    var height = window.innerHeight - margin.top - margin.bottom - 40;
+    var height = window.innerHeight - margin.top - margin.bottom - 75;
 
     // Selecionar o container do gráfico
     var container = d3.select("#container-grafo");
     var options = d3.select("#opt-grafo");
+    var sliderWrapper = d3.select("#slider-container");
 
     // Criação do SVG dentro do container
     const svg = container.append("svg")
@@ -30,8 +36,8 @@ function criarGrafoD3(graphData, target) {
     }
 
     // Calcular o peso máximo e mínimo
-    const maxWeight = d3.max(graphData.links, d => d.weight);
-    const minWeight = d3.min(graphData.links, d => d.weight);
+    const maxWeight = d3.max(graphDataInicial.links, d => d.weight);
+    const minWeight = d3.min(graphDataInicial.links, d => d.weight);
 
     // Função para normalizar os pesos
     function normalizeWeight(weight) {
@@ -44,8 +50,8 @@ function criarGrafoD3(graphData, target) {
     const colorScale = d3.scaleSequential(d3.interpolateViridis).domain([minWeight, maxWeight]);
 
     // Configuração da simulação de força
-    const simulation = d3.forceSimulation(graphData.nodes)
-        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(d => 350 / normalizeWeight(d.weight)))
+    const simulation = d3.forceSimulation(graphDataInicial.nodes)
+        .force("link", d3.forceLink(graphDataInicial.links).id(d => d.id).distance(d => 350 / normalizeWeight(d.weight)))
         .force("charge", d3.forceManyBody().strength(-300))
         .force("center", d3.forceCenter(width / 2, height / 2))
         .on("tick", ticked);
@@ -60,7 +66,7 @@ function criarGrafoD3(graphData, target) {
 
     // Criar os links
     const link = linkGroup.selectAll("line")
-        .data(graphData.links)
+        .data(graphDataInicial.links)
         .enter()
         .append("line")
         .attr("stroke-width", 2)
@@ -68,7 +74,7 @@ function criarGrafoD3(graphData, target) {
 
     // Criar os labels dos links
     const linkLabels = linkGroup.selectAll(".link-label")
-        .data(graphData.links)
+        .data(graphDataInicial.links)
         .enter()
         .append("g")
         .attr("class", "link-label");
@@ -90,7 +96,7 @@ function criarGrafoD3(graphData, target) {
 
     // Criar os nós
     const node = nodeGroup.selectAll(".node")
-        .data(graphData.nodes)
+        .data(graphDataInicial.nodes)
         .enter()
         .append("g")
         .attr("class", "node")
@@ -102,7 +108,7 @@ function criarGrafoD3(graphData, target) {
     node.append("circle")
         .attr("r", 25)
         .attr("fill", "lightblue")
-        .attr("stroke", "#7fa2c4");
+        .attr("stroke", "#50789F");
 
     // Dimensões do retângulo para o texto do nó
     const rectWidth = 60;
@@ -168,23 +174,49 @@ function criarGrafoD3(graphData, target) {
     }
 
     options.append("img")
-        .attr("src", "../static/images/centrar.png")
-        .attr("width", 20)
-        .attr("height", 20)
-        .style("cursor", "pointer")
-        .on("click", function() {
-            simulation.alphaTarget(1).restart();
-        });
+    .attr("src", "../static/images/centrar.png")
+    .attr("width", 20)
+    .attr("height", 20)
+    .style("cursor", "pointer")
+    .on("click", function() {
+        simulation.alphaTarget(1).restart();
+    });
 
     options.append("img")
-        .attr("src", "../static/images/download.png")
-        .attr("width", 23)
-        .attr("height", 23)
-        .style("cursor", "pointer")
-        .style("float", "right")
-        .on("click", function() {
-            downloadSVG();
-        });
-
+    .attr("src", "../static/images/download.png")
+    .attr("width", 23)
+    .attr("height", 23)
+    .style("cursor", "pointer")
+    .style("float", "right")
+    .on("click", function() {
+        downloadSVG();
+    });
+    if(primeira){        
+        sliderWrapper.append("span")
+            .attr("id", "sliderLabel")
+            .text("Número de palavras co-ocorrentes: " + num_coocorrencias);
+    
+        sliderWrapper.append("input")
+            .attr("type", "range")
+            .attr("min", 5)
+            .attr("max", 20)
+            .attr("value", num_coocorrencias)
+            .attr("id", "rangeSlider")
+            .style("margin", "0")
+            .on("input", function() {
+                d3.select("#sliderLabel").text("Número de palavras co-ocorrentes: " + this.value);
+                num_coocorrencias = parseInt(this.value);
+                updateSliderProgress(num_coocorrencias, this.min, this.max);
+                criarGrafoD3(dados[0][parseInt(this.value)], target, dados);
+            });
+    
+        function updateSliderProgress(value, min, max) {
+            const percentage = ((value - min) / (max - min)) * 100;
+            document.getElementById('rangeSlider').style.background = `linear-gradient(to right, #50789F ${percentage}%, #ddd ${percentage}%)`;
+        }
+    
+        updateSliderProgress(num_coocorrencias, 5, 20);
+        primeira = false;
+    }
     return svg;
 }

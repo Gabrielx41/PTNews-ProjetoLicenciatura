@@ -16,7 +16,7 @@ function atualizarCalendario(dateMin, dateMax){
         time_24hr: true,
         defaultDate: dateMax,
         maxDate: new Date(),
-        minDate: "18/06/2024 11:11" //É preciso alterar a função pesquisa da FuncPesquisa.js
+        minDate: "19/06/2024 00:25" //É preciso alterar a função pesquisa da FuncPesquisa.js
     });
 
     flatpickr('#datetimepickerMin', {
@@ -36,10 +36,10 @@ function atualizarCalendario(dateMin, dateMax){
         time_24hr: true,
         defaultDate: dateMin,
         maxDate: new Date(),
-        minDate: "18/06/2024 11:11"
+        minDate: "19/06/2024 00:25"
     });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    atualizarCalendario("18/06/2024 11:11", new Date());
+    atualizarCalendario("19/06/2024 00:25", new Date());
 });

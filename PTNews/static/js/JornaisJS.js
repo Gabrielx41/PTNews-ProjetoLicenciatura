@@ -17,7 +17,7 @@ function formatarNoticia(data) {
                     <h1 class="titulo"><a href="/noticia/${encodedId}" style="text-decoration: none; color: inherit">${noticia.title || ""}</a></h1>
                 </div>
                 <div class="div-lead">
-                    <p class="lead">${noticia.lead || ""}</p>
+                    <p class="lead">${truncateText(noticia.lead || "", 180)}</p>
                 </div>
                 <div class="div-source-published">
                     <div class="source-info">
